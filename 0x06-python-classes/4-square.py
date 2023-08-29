@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """define a sqaure"""
 
+
 class Square:
     """represent a square"""
 
