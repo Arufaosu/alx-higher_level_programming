@@ -42,7 +42,6 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-
     def perimeter(self):
         """Gets the perimeter."""
         if self.__width == 0 or self.__height == 0:
