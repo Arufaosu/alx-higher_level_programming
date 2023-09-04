@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
-"""defines rectangle"""
+"""defines the rectangle"""
 
 class Rectangle:
-    """initializes rectangle"""
+    """represents a recntangle"""
     def __init__(self, width=0, height=0):
+        """initialize rectangle"""
         self.width = width
         self.height = height
 
@@ -38,8 +39,20 @@ class Rectangle:
         """gets the perimeter"""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return ((self.__width * 2) + (self.__height * 2))
+        return ((self.__width * 2) + (self.height * 2))
 
     def area(self):
         """gets the area"""
         return (self.__width * self.__height)
+
+    def __str__(self):
+        """gets printable representation of he rectangle"""
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+
+        rect = []
+        for i in range(self.__height):
+            [rect.append('#') for j in range(self.__width)]
+            if i != self.__height - i:
+                rect.append("\n")
+        return ("".join(rect))
