@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-
+"""Defines bse"""
 import json
 import csv
 import turtle
 
-
 class Base:
     """This represents the base
 
-    Private Class Attributes:
+    Class attributes:
         __nb_object: Number of instantiated Bases
     """
 
