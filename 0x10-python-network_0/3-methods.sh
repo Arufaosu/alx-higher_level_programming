@@ -6,5 +6,6 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-methods=$(curl -sI -X OPTIONS "$1" | awk '/Allow:/ {print $2}')
+response=$(curl -sI -X OPTIONS "$1")
+methods=$(echo "$response" | awk '/Allow:/ {print substr($0, index($0,$2))}')
 echo "$methods"

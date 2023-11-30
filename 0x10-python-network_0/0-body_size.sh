@@ -6,5 +6,5 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-size=$(curl -s "$1" | wc -w)
+size=$(curl -s -H "Accept-Encoding: gzip, deflate" "$1" | wc -c)
 echo "$size"

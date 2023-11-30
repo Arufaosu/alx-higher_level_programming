@@ -6,9 +6,10 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-curl -s -o /dev/null -w "%{http_code}" "$1" | {
-    read -r status_code
-    if [ "$status_code" -eq 200 ]; then
-        curl -s "$1"
-    fi
-}
+response=$(curl -s -w "%{http_code}" "$1")
+status_code=$(echo "$response" | tail -c 4)
+
+if [ "$status_code" -eq 200 ]; then
+    body=$(echo "$response" | sed '$s/.*\r\n\r\n//')
+    echo "$body"
+fi
